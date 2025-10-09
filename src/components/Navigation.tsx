@@ -21,7 +21,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center">
               <span className="text-white">RU</span>
             </div>
-            <span className="text-emerald-900">ReVita Upcycled</span>
+            <span className="text-emerald-900">ReVita</span>
           </button>
 
           {/* Desktop Navigation */}
