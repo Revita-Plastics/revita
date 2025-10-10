@@ -4,14 +4,9 @@ import { useState } from "react";
 interface NavigationProps {
   currentPage: string;
   onNavigate: (page: string) => void;
-  siteName?: string;
 }
 
-export function Navigation({
-  currentPage,
-  onNavigate,
-  siteName = "ReVita",
-}: NavigationProps) {
+export function Navigation({ currentPage, onNavigate }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -24,11 +19,9 @@ export function Navigation({
             className="flex items-center space-x-2"
           >
             <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center">
-              <span className="text-white">
-                {siteName.slice(0, 2).toUpperCase()}
-              </span>
+              <span className="text-white">RU</span>
             </div>
-            <span className="text-emerald-900">{siteName}</span>
+            <span className="text-emerald-900">ReVita Upcycled</span>
           </button>
 
           {/* Desktop Navigation */}
@@ -53,7 +46,6 @@ export function Navigation({
             >
               Over
             </button>
-            {/* Admin is intentionally not linked in the nav; access via /admin URL */}
           </div>
 
           {/* Mobile menu button */}

@@ -76,8 +76,12 @@ export default function App() {
   // If user landed on /admin directly, open admin page (no nav link shown)
   useEffect(() => {
     try {
-      if (typeof location !== "undefined" && location.pathname === "/admin") {
-        setCurrentPage("admin");
+      if (typeof location !== "undefined") {
+        const p = location.pathname || "";
+        // Support direct /admin and GitHub Pages subpath like /revita/admin
+        if (p === "/admin" || p.endsWith("/admin") || p === "/revita/admin") {
+          setCurrentPage("admin");
+        }
       }
     } catch (e) {}
   }, []);
