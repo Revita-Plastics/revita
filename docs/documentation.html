@@ -1,372 +1,271 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>ReVita — Documentatie (gebruikersvriendelijk)</title>
+    <title>ReVita — Technische documentatie</title>
     <style>
-      body {
-        font-family: system-ui, -apple-system, Segoe UI, Roboto,
-          "Helvetica Neue", Arial;
-        line-height: 1.5;
-        color: #0f172a;
-        background: #f8fafc;
-        padding: 24px;
-      }
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        background: #fff;
-        border-radius: 12px;
-        padding: 24px;
-        box-shadow: 0 6px 20px rgba(2, 6, 23, 0.08);
-      }
-      h1,
-      h2 {
-        color: #0b1220;
-      }
-      .row {
-        display: flex;
-        gap: 16px;
-      }
-      .box {
-        background: #f1f5f9;
-        padding: 12px;
-        border-radius: 8px;
-      }
-      .card {
-        border-left: 4px solid #06b6d4;
-        padding: 12px;
-        margin: 12px 0;
-        background: #fff;
-      }
-      .btn {
-        display: inline-block;
-        background: #0ea5a4;
-        color: #fff;
-        padding: 8px 12px;
-        border-radius: 8px;
-        text-decoration: none;
-        cursor: pointer;
-        border: none;
-      }
-      pre {
-        background: #0b1220;
-        color: #e6eef7;
-        padding: 12px;
-        border-radius: 8px;
-        overflow: auto;
-      }
-      .tip {
-        background: #f8fafc;
-        border: 1px dashed #cbd5e1;
-        padding: 10px;
-        border-radius: 8px;
-      }
-      .collapsible {
-        background: #fff;
-        border-radius: 8px;
-        padding: 8px;
-        border: 1px solid #e2e8f0;
-      }
-      .small {
-        font-size: 0.9rem;
-        color: #475569;
-      }
-      details summary {
-        cursor: pointer;
-        padding: 8px;
-      }
-      .diagram {
-        display: block;
-        margin: 16px 0;
-      }
-      .copy {
-        background: #111827;
-        color: #fff;
-        padding: 6px 10px;
-        border-radius: 6px;
-        border: none;
-        cursor: pointer;
-      }
+      :root{--bg:#f8fafc;--card:#fff;--muted:#64748b;--accent:#6366f1}
+      body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;background:var(--bg);color:#0f172a}
+      .wrap{max-width:1100px;margin:28px auto;padding:28px}
+      .card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 6px 20px rgba(2,6,23,.06);margin-bottom:18px}
+      h1{margin:0 0 6px}h2{margin-top:12px}
+      pre{background:#0b1220;color:#e6eef7;padding:12px;border-radius:8px;overflow:auto}
+      code{background:#f1f5f9;padding:2px 6px;border-radius:6px}
+      .muted{color:var(--muted)}
+      .grid{display:grid;grid-template-columns:1fr 320px;gap:16px}
+      .sidebar{position:sticky;top:24px}
+      a.btn{display:inline-block;background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none}
+      details{margin:8px 0}
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>ReVita — Eenvoudige en visuele documentatie</h1>
-      <p class="small">
-        Deze pagina legt op een simpele manier uit wat elk belangrijk deel van
-        het project doet en hoe je veelvoorkomende taken uitvoert (foto
-        toevoegen, naam wijzigen, lokaal testen, publiceren). Geen technische
-        voorkennis vereist.
-      </p>
-
-      <h2>Wat is dit project?</h2>
+    <div class="wrap">
       <div class="card">
-        <p>
-          Het is een kleine website gemaakt met React en Vite. React is een
-          manier om webpagina's op te bouwen met onderdelen (zoals
-          LEGO-blokjes). Vite is het gereedschap dat alles snel bij elkaar zet.
-        </p>
-        <p class="small">Belangrijkste mappen:</p>
-        <ul>
-          <li>
-            <strong>/src</strong> — hier staat de code (knoppen, pagina's,
-            producten, afbeeldingen).
-          </li>
-          <li>
-            <strong>/src/images</strong> — je eigen foto's (bijv.
-            plantenpot.webp).
-          </li>
-          <li>
-            <strong>/build</strong> — output na 'bouwen' (klaar om online te
-            zetten).
-          </li>
-          <li><strong>/docs</strong> — deze documentatie.</li>
-        </ul>
+        <h1>ReVita — Technische documentatie</h1>
+        <p class="muted">Diepgaande technische uitleg van de projectstructuur, build pipeline, TypeScript-configuratie, assets handling en CI/CD. Gericht op ontwikkelaars en technisch ingestelde gebruikers.</p>
       </div>
 
-      <h2>Snel overzicht (visueel)</h2>
-      <svg
-        class="diagram"
-        width="100%"
-        height="140"
-        viewBox="0 0 900 140"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect
-          x="10"
-          y="10"
-          width="200"
-          height="120"
-          rx="8"
-          fill="#e6fffa"
-          stroke="#06b6d4"
-        />
-        <text x="110" y="70" font-size="14" text-anchor="middle" fill="#03403a">
-          src (code)
-        </text>
+      <div class="grid">
+        <main class="card">
+          <h2>1. Project overzicht</h2>
+          <p>Dit project is een eenvoudige React-app gebouwd met Vite (TypeScript/TSX). De belangrijkste doelen van deze documentatie:</p>
+          <ul>
+            <li>Uitleg van mappen en bestanden</li>
+            <li>Hoe je ontwikkelomgeving instelt</li>
+            <li>Hoe assets (afbeeldingen) correct te gebruiken</li>
+            <li>Build & deployment details (GitHub Pages)</li>
+            <li>Praktische voorbeelden: tsconfig, vite.config, CI</li>
+          </ul>
 
-        <rect
-          x="260"
-          y="10"
-          width="200"
-          height="120"
-          rx="8"
-          fill="#fff7ed"
-          stroke="#fb923c"
-        />
-        <text x="360" y="70" font-size="14" text-anchor="middle" fill="#7a3a00">
-          Vite (build)
-        </text>
+          <h2>2. Bestandsstructuur (belangrijkste bestanden)</h2>
+          <pre>
+project/
+├─ index.html                # root HTML template
+├─ package.json              # scripts + dependencies
+├─ vite.config.ts           # Vite config (base, alias, outDir)
+├─ tsconfig.json (optioneel) # TypeScript config
+├─ src/
+│  ├─ main.tsx               # entrypoint
+│  ├─ App.tsx                # app + product data
+│  ├─ images/                # lokale afbeeldingen (importeren vanuit TS)
+│  └─ components/            # UI components (Gallery, Detail, Navigation...)
+└─ docs/
+   └─ documentation.html     # (deze file)
+          </pre>
 
-        <rect
-          x="510"
-          y="10"
-          width="360"
-          height="120"
-          rx="8"
-          fill="#eef2ff"
-          stroke="#6366f1"
-        />
-        <text x="690" y="45" font-size="14" text-anchor="middle" fill="#1e293b">
-          build/ (static site)
-        </text>
-        <text x="690" y="70" font-size="12" text-anchor="middle" fill="#1e293b">
-          klaar om te hosten (GitHub Pages)
-        </text>
+          <h2>3. Lokale ontwikkelstappen</h2>
+          <p>Aanname: je hebt Node.js en Git geïnstalleerd.</p>
+          <pre>
+# éénmalig
+npm install
 
-        <line
-          x1="210"
-          y1="70"
-          x2="260"
-          y2="70"
-          stroke="#94a3b8"
-          stroke-width="2"
-          marker-end="url(#arrow)"
-        />
-        <line
-          x1="460"
-          y1="70"
-          x2="510"
-          y2="70"
-          stroke="#94a3b8"
-          stroke-width="2"
-          marker-end="url(#arrow)"
-        />
-        <defs>
-          <marker
-            id="arrow"
-            markerWidth="10"
-            markerHeight="10"
-            refX="0"
-            refY="3"
-            orient="auto"
-          >
-            <path d="M0,0 L0,6 L6,3 z" fill="#94a3b8" />
-          </marker>
-        </defs>
-      </svg>
+# development server
+npm run dev
 
-      <h2>Veelvoorkomende taken — stap voor stap</h2>
+# build voor productie
+npm run build
 
-      <h3>1) Eigen foto toevoegen (zodat die zichtbaar is op de website)</h3>
-      <div class="collapsible">
-        <p>
-          Stap 1: kopieer je afbeelding naar <code>/src/images</code> (bijv.
-          <code>mijn-pot.webp</code>).
-        </p>
-        <p>
-          Stap 2: open <code>src/App.tsx</code> en voeg bovenaan een regel toe
-          om de afbeelding te importeren:
-        </p>
-        <pre>import MijnPot from "./images/mijn-pot.webp";</pre>
-        <p>
-          Stap 3: in de productenlijst zet je bij het product
-          <code>image: MijnPot</code>
-        </p>
-        <p class="tip">
-          Waarom dit? Vite zorgt dan zelf dat de afbeelding op de juiste plek in
-          de uiteindelijke website terechtkomt.
-        </p>
-        <button class="copy" data-copy>Copy import voorbeeld</button>
+# publiceer (configuratie in package.json)
+npm run deploy
+          </pre>
+
+          <h2>4. Werken met afbeeldingen / assets</h2>
+          <p>Er zijn twee aanbevolen manieren om afbeeldingen te gebruiken in Vite:</p>
+          <ol>
+            <li><strong>Importeren vanuit <code>/src</code></strong>: handig wanneer je wilt dat Vite het bestand verwerkt en naar build/assets kopieert. Voorbeeld:</li>
+          </ol>
+          <pre>
+// src/App.tsx
+import MijnPot from './images/mijn-pot.webp'
+
+const products = [
+  { id:1, name:'Plantenpot', image: MijnPot }
+]
+          </pre>
+          <p>Voordeel: Vite retourneert een hashed URL en zorgt voor caching en optimalisatie.</p>
+
+          <ol start="2">
+            <li><strong>Public folder</strong>: plaats bestanden in <code>public/</code> en verwijs met een absolute pad (<code>/images/foo.jpg</code>). Deze bestanden worden 1-op-1 gekopieerd naar de build-output.</li>
+          </ol>
+
+          <h2>5. TypeScript & declaraties (images import)</h2>
+          <p>Omdat we afbeeldingen importeren in TypeScript, is het handig om module-declaraties toe te voegen zodat de compiler en editor geen fouten tonen.</p>
+          <pre>
+// src/custom.d.ts
+declare module '*.png'
+declare module '*.jpg'
+declare module '*.webp'
+declare module '*.svg' {
+  const src: string
+  export default src
+}
+          </pre>
+          <p>Als je nog geen <code>tsconfig.json</code> hebt, voeg een minimale versie toe:</p>
+          <pre>
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "baseUrl": "./"
+  },
+  "include": ["src"]
+}
+          </pre>
+
+          <h2>6. Vite-configuratie (belangrijk voor GitHub Pages)</h2>
+          <p>Open <code>vite.config.ts</code>. Belangrijke opties:</p>
+          <pre>
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  base: '/revita/',   // pas aan als je repo-naam anders is
+  plugins: [react()],
+  build: { outDir: 'build' }
+})
+          </pre>
+          <p>De <code>base</code> zorgt dat alle asset-URLs correct verwijzen wanneer je site op <code>https://<user>.github.io/<repo>/</code> staat.</p>
+
+          <h2>7. package.json scripts</h2>
+          <pre>
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
+          </pre>
+          <p>Hier gebruikt het project <code>gh-pages</code> om de inhoud van <code>build</code> naar de <code>gh-pages</code>-branch te publiceren.</p>
+
+          <h2>8. GitHub Actions: automatisch bouwen & publiceren</h2>
+          <p>Voorbeeldworkflow (plaats in <code>.github/workflows/deploy.yml</code>):</p>
+          <pre>
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm ci
+      - run: npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
+          user_name: 'revitabot'
+          user_email: 'deploy@revita.local'
+          
+          </pre>
+          <p>Deze workflow bouwt de site en publiceert de <code>build</code>-map naar de <code>gh-pages</code>-branch op elke push naar <code>main</code>.</p>
+
+          <h2>9. Veel voorkomende problemen & oplossingen</h2>
+          <details>
+            <summary>Afbeelding wordt niet geladen</summary>
+            <div>
+              <p>Controleer of je afbeelding in <code>src/images</code> staat en dat je hem importeert in TypeScript/TSX. Als je absolute paths gebruikt (zoals <code>/images/foo.jpg</code>) zet de afbeelding dan in <code>public</code>.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>TypeScript geeft importfouten voor afbeeldingen</summary>
+            <div>
+              <p>Maak/verifieer <code>src/custom.d.ts</code> met de module-declaraties. Herstart de editor indien nodig.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Build werkt lokaal maar assets 404 op GitHub Pages</summary>
+            <div>
+              <p>Controleer dat <code>vite.config.ts</code> een juiste <code>base</code> heeft (bijv. <code>/revita/</code> voor repo <code>revita</code>), en dat je build-output gepubliceerd is naar <code>gh-pages</code> of de juiste Pages branch.</p>
+            </div>
+          </details>
+
+          <h2>10. Aanbevolen developer workflow</h2>
+          <ol>
+            <li>Maak een feature branch: <code>git checkout -b feat/add-product</code></li>
+            <li>Voeg afbeelding toe in <code>src/images</code> en importeer in <code>App.tsx</code></li>
+            <li>Run <code>npm run dev</code> en test in browser</li>
+            <li>Commit & push, maak PR naar main</li>
+          </ol>
+
+          <h2>11. Extra nuttige snippets</h2>
+          <h3>Minimal tsconfig.json</h3>
+          <pre>
+{
+  "compilerOptions": {
+    "target":"ES2020",
+    "module":"ESNext",
+    "jsx":"react-jsx",
+    "moduleResolution":"bundler",
+    "skipLibCheck":true
+  },
+  "include":["src"]
+}
+          </pre>
+
+          <h3>Vite production build check</h3>
+          <pre>
+npm run build && ls build
+          </pre>
+
+          <h2>12. Contact / vervolgstappen</h2>
+          <p>Wil je dat ik:</p>
+          <ul>
+            <li>deze doc ook als `README.md` toevoeg?</li>
+            <li>de GitHub Action daadwerkelijk maak en commit?</li>
+            <li>tsconfig.json en custom.d.ts toevoeg en commit?</li>
+          </ul>
+        </main>
+
+        <aside class="sidebar">
+          <div class="card">
+            <h3>Snelle links</h3>
+            <ul>
+              <li><code>src/App.tsx</code> — productdata & imports</li>
+              <li><code>src/images/</code> — plaats hier eigen foto's</li>
+              <li><code>vite.config.ts</code> — check <code>base</code></li>
+              <li><code>package.json</code> — scripts</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Commands</h3>
+            <pre>npm ci
+npm run dev
+npm run build
+npm run deploy</pre>
+          </div>
+
+          <div class="card">
+            <h3>Quick fixes</h3>
+            <ul>
+              <li>Editor herstarten bij types/bundler issues</li>
+              <li>Verifieer <code>base</code> in <code>vite.config.ts</code></li>
+              <li>Gebruik <code>gh-pages</code> of Actions om te publiceren</li>
+            </ul>
+          </div>
+        </aside>
       </div>
-
-      <h3>
-        2) De naam van de site veranderen (bijv. van "ReVita Upcycled" naar
-        "ReVita")
-      </h3>
-      <div class="collapsible">
-        <p>Open en wijzig deze bestanden:</p>
-        <ul>
-          <li>
-            <code>index.html</code> — wijzig de &lt;title&gt; naar
-            &lt;title&gt;ReVita&lt;/title&gt;
-          </li>
-          <li>
-            <code>src/components/Navigation.tsx</code> — wijzig de tekst die het
-            merk toont naar "ReVita"
-          </li>
-          <li>
-            <code>src/components/AboutPage.tsx</code> — pas kop en tekst aan
-            indien nodig
-          </li>
-        </ul>
-        <p class="small">
-          Tip: zoek in het project naar "ReVita Upcycled" en vervang dat door
-          "ReVita".
-        </p>
-        <button class="copy" data-copy>Copy zoek-commando (PowerShell)</button>
-        <pre>
-Select-String -Path .\* -Pattern "ReVita Upcycled" -SimpleMatch -List</pre
-        >
-      </div>
-
-      <h3>3) Site lokaal testen</h3>
-      <div class="collapsible">
-        <p>
-          Als je Node.js hebt geïnstalleerd, kun je in de projectmap dit
-          commando gebruiken om een lokale preview te starten:
-        </p>
-        <pre>npm run dev</pre>
-        <p>
-          Open dan je browser op <code>http://localhost:5173</code> (of het
-          adres dat in de terminal verschijnt).
-        </p>
-      </div>
-
-      <h3>4) Site online zetten (GitHub Pages)</h3>
-      <div class="collapsible">
-        <p>Algemene stappen:</p>
-        <ol>
-          <li>
-            Maak een GitHub-repository (of gebruik de bestaande:
-            <code>SepEmmers/revita</code>).
-          </li>
-          <li>Pushe je code naar GitHub (<code>git push</code>).</li>
-          <li>
-            Gebruik het bouw- en publicatiescript in <code>package.json</code>:
-            <code>npm run deploy</code>. Dit bouwt de site en publiceert de
-            inhoud van de <code>build</code>-map naar GitHub Pages.
-          </li>
-        </ol>
-        <p class="small">
-          Als je wilt, kan ik een automatische GitHub Action toevoegen zodat
-          elke keer wanneer je naar <code>main</code> pusht de site automatisch
-          wordt gebouwd en gepubliceerd.
-        </p>
-      </div>
-
-      <h2>Extra: interactie en hulpfuncties</h2>
-      <p>Een paar knoppen hieronder helpen je snel commando's te kopiëren:</p>
-      <div style="display: flex; gap: 8px; margin-bottom: 12px">
-        <button class="btn" data-copy-text="npm run dev">
-          Kopieer: npm run dev
-        </button>
-        <button class="btn" data-copy-text="npm run build">
-          Kopieer: npm run build
-        </button>
-        <button class="btn" data-copy-text="npm run deploy">
-          Kopieer: npm run deploy
-        </button>
-      </div>
-
-      <h2>Veelgestelde vragen (kort)</h2>
-      <details>
-        <summary>Mijn afbeelding verschijnt nog steeds niet — wat nu?</summary>
-        <div class="card small">
-          <p>
-            Controleer of je afbeelding in <code>/src/images</code> staat en dat
-            je hem importeert in <code>App.tsx</code>. Als je een externe URL
-            gebruikt, controleer of de link werkt.
-          </p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Ik zie fouten in de editor over types of imports</summary>
-        <div class="card small">
-          <p>
-            Dat zijn meestal TypeScript-waarschuwingen. Ze beïnvloeden vaak niet
-            het draaien van de site. Je kunt een klein bestand
-            <code>tsconfig.json</code> toevoegen of de editorinstellingen
-            aanpassen — wil je dat ik dat toevoeg?
-          </p>
-        </div>
-      </details>
-
-      <footer style="margin-top: 18px; font-size: 0.9rem; color: #64748b">
-        <p>
-          Wil je dat ik deze pagina ook als README.md maak of dat ik een
-          stap-voor-stap video / GIF toevoeg? Zeg het en ik voeg het toe.
-        </p>
-      </footer>
     </div>
-
-    <script>
-      // copy-to-clipboard helper
-      document.querySelectorAll("[data-copy-text]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const text = btn.getAttribute("data-copy-text") || "";
-          navigator.clipboard.writeText(text).then(() => {
-            btn.textContent = "Gekopieerd!";
-            setTimeout(() => (btn.textContent = text), 1500);
-          });
-        });
-      });
-      document.querySelectorAll("[data-copy]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const pre =
-            btn.previousElementSibling ||
-            btn.parentElement.querySelector("pre");
-          if (!pre) return;
-          const text = pre.textContent;
-          navigator.clipboard.writeText(text).then(() => {
-            btn.textContent = "Gekopieerd!";
-            setTimeout(() => (btn.textContent = "Copy import voorbeeld"), 1500);
-          });
-        });
-      });
-    </script>
   </body>
 </html>
