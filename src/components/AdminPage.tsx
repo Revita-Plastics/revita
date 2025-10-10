@@ -34,9 +34,9 @@ export function AdminPage({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // Simple hard-coded credentials (client-side only)
+  // Simple client-side credentials; prefer to use settings-admin password if available
   const VALID_USERNAME = "admin";
-  const VALID_PASSWORD = "revita123";
+  const VALID_PASSWORD = (settings && (settings as any).adminPassword) || "revita123";
 
   // Product form state
   const [editing, setEditing] = useState<Product | null>(null);
@@ -61,6 +61,15 @@ export function AdminPage({
     setEditing(null);
     setForm({});
   };
+
+  // helper to read file as data URL
+  const fileToDataUrl = (file: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result));
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
 
   const startEdit = (p: Product) => {
     setEditing(p);
@@ -221,14 +230,74 @@ export function AdminPage({
               </div>
 
               <div>
-                <label className="block text-sm">Afbeelding (URL)</label>
+                <label className="block text-sm">
+                  Afbeelding (URL of upload)
+                </label>
                 <input
                   className="mt-1 block w-full border rounded px-3 py-2"
                   value={form.image || ""}
+                  placeholder="Plak een URL of upload een bestand"
                   onChange={(e) =>
                     setForm((f) => ({ ...f, image: e.target.value }))
                   }
                 />
+                <div className="mt-2 flex gap-2 items-center">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={async (e) => {
+                      const file = e.target.files && e.target.files[0];
+                      if (!file) return;
+                      try {
+                        const dataUrl = await fileToDataUrl(file);
+                        setForm((f) => ({ ...f, image: dataUrl }));
+                      } catch (err) {
+                        alert("Kan bestand niet lezen");
+                      }
+                    }}
+                  />
+                  {/* If Cloudinary config present, offer upload */}
+                  {((settings as any)?.cloudinaryCloudName && (settings as any)?.cloudinaryUploadPreset) && (
+                    <button
+                      type="button"
+                      className="px-3 py-1 bg-indigo-600 text-white rounded"
+                      onClick={async () => {
+                        const input = document.querySelector('input[type=file]') as HTMLInputElement | null;
+                        const file = input?.files?.[0];
+                        if (!file) return alert('Selecteer eerst een bestand');
+                        try {
+                          const formData = new FormData();
+                          formData.append('file', file);
+                          formData.append('upload_preset', (settings as any).cloudinaryUploadPreset);
+                          const cloudName = (settings as any).cloudinaryCloudName;
+                          const resp = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+                            method: 'POST',
+                            body: formData,
+                          });
+                          const json = await resp.json();
+                          if (json.secure_url) {
+                            setForm((f) => ({ ...f, image: json.secure_url }));
+                          } else {
+                            alert('Upload mislukt');
+                          }
+                        } catch (err) {
+                          alert('Upload fout: ' + (err as any).message);
+                        }
+                      }}
+                    >
+                      Upload naar Cloudinary
+                    </button>
+                  )}
+                  {form.image && (
+                    <div className="w-24 h-24 bg-gray-100 rounded overflow-hidden">
+                      <img
+                        src={form.image}
+                        alt="preview"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div>
