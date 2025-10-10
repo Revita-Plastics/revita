@@ -28,11 +28,7 @@ export function Navigation({
                 {siteName.slice(0, 2).toUpperCase()}
               </span>
             </div>
-<<<<<<< HEAD
             <span className="text-emerald-900">{siteName}</span>
-=======
-            <span className="text-emerald-900">{siteName}</span>
->>>>>>> 1afde28 (feat(admin): add admin page, persistence and GitHub publish workflow; add tsconfig)
           </button>
 
           {/* Desktop Navigation */}
