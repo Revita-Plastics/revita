@@ -3,14 +3,14 @@ import { Mail, Phone, MapPin } from "lucide-react";
 export function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-emerald-900 mb-6">Over ReVita Plastics</h1>
+      <h1 className="text-emerald-900 mb-6">Over ReVita Upcycled</h1>
 
       <div className="prose prose-lg max-w-none">
         <p className="text-gray-700 leading-relaxed">
-          ReVita Plastics ontwerpt en produceert stijlvolle en functionele
+          ReVita Upcycled ontwerpt en produceert stijlvolle en functionele
           producten gemaakt van geupcycled plastic. We hergebruiken materialen
           die anders afval zouden worden en transformeren ze in duurzame items
-          voor thuis.
+          voor thuis, kantoor en onderweg.
         </p>
 
         <h2 className="text-emerald-900 mt-8 mb-4">Onze Missie</h2>
@@ -49,9 +49,9 @@ export function AboutPage() {
           <div className="flex items-start gap-3">
             <MapPin className="h-5 w-5 text-emerald-600 mt-1" />
             <div>
-              <p className="text-gray-700">ReVita Plastics B.V.</p>
-              <p className="text-gray-700"> adres</p>
-              <p className="text-gray-700">adres</p>
+              <p className="text-gray-700">ReVita B.V.</p>
+              <p className="text-gray-700">Gezondheidsstraat 123</p>
+              <p className="text-gray-700">1234 AB Amsterdam</p>
             </div>
           </div>
 
@@ -68,10 +68,10 @@ export function AboutPage() {
           <div className="flex items-center gap-3">
             <Mail className="h-5 w-5 text-emerald-600" />
             <a
-              href="mailto:revita.plastics@gmail.com"
+              href="mailto:info@revita.nl"
               className="text-gray-700 hover:text-emerald-600"
             >
-              revita.plastics@gmail.com
+              info@revita.nl
             </a>
           </div>
         </div>

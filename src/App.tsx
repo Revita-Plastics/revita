@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PPM_PRODUCT_RISER_1 from "./images/PPM_Product_Riser_1.webp";
-import productsData from "./data/products.json";
-import settingsData from "./data/settings.json";
 import { Navigation } from "./components/Navigation";
 import { ProductGallery } from "./components/ProductGallery";
 import { ProductDetail } from "./components/ProductDetail";
 import { AboutPage } from "./components/AboutPage";
-import { AdminPage } from "./components/AdminPage";
 import { Toaster } from "./components/ui/sonner";
 
 // Mock product data (upcycled plastic products)
-// Use JSON files (written by admin workflow) as initial data, fallback to embedded list
-const embeddedProducts = [
+const products = [
   {
     id: 1,
     name: "Upcycled Plantenpot",
@@ -28,77 +24,87 @@ const embeddedProducts = [
     ],
     ingredients: ["Geupcycled polypropyleen", "Kleurpigmenten (vegan)"],
   },
+  {
+    id: 2,
+    name: "Herbruikbare Opbergbox",
+    category: "Organisatie",
+    price: "€19,95",
+    image:
+      "https://images.unsplash.com/photo-1598302789254-8d9b1d6b3b20?auto=format&fit=crop&w=1080&q=80",
+    description:
+      "Stevige opbergbox gemaakt van gerecyclede kunststof. Ideaal voor kasten, garages en kleine ruimtes.",
+    benefits: [
+      "Stapbaar ontwerp",
+      "Makkelijk te reinigen",
+      "100% gerecycled materiaal",
+    ],
+    ingredients: ["Geupcycled HDPE", "Rubberen anti-slip basis"],
+  },
+  {
+    id: 3,
+    name: "Duurzame Drinkfles",
+    category: "Outdoor",
+    price: "€14,95",
+    image:
+      "https://images.unsplash.com/photo-1505575967452-1c7f4d6b8b05?auto=format&fit=crop&w=1080&q=80",
+    description:
+      "Lightweight drinkfles gemaakt van gerecycled PET, BPA-vrij en perfect voor onderweg.",
+    benefits: ["BPA-vrij", "Gerecycled materiaal", "Lichtgewicht en lekvrij"],
+    ingredients: ["Gerecycled PET", "Silikonendop"],
+  },
+  {
+    id: 4,
+    name: "Bureaulade Organizer",
+    category: "Kantoor",
+    price: "€9,95",
+    image:
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1080&q=80",
+    description:
+      "Compacte organizer voor op je bureau, gemaakt van geupcycled plastic met meerdere compartimenten.",
+    benefits: ["Compact", "Veel vakken", "Gerecycled materiaal"],
+    ingredients: ["Geupcycled kunststof"],
+  },
+  {
+    id: 5,
+    name: "Eco Winkelwagen-tas",
+    category: "Lifestyle",
+    price: "€12,95",
+    image:
+      "https://images.unsplash.com/photo-1520975925700-1f9d3dd85f47?auto=format&fit=crop&w=1080&q=80",
+    description:
+      "Opvouwbare tas gemaakt van gerecycled plastic; sterk genoeg voor boodschappen en makkelijk mee te nemen.",
+    benefits: [
+      "Opvouwbaar",
+      "Sterk draagvermogen",
+      "Gemaakt van gerecycled materiaal",
+    ],
+    ingredients: ["Geupcycled polyester"],
+  },
+  {
+    id: 6,
+    name: "Matrix Schoenplaatjes",
+    category: "Accessoires",
+    price: "€7,95",
+    image:
+      "https://images.unsplash.com/photo-1519741494199-6ec7ac3b5e39?auto=format&fit=crop&w=1080&q=80",
+    description:
+      "Kleine schoenplaatjes en hakbeschermers gemaakt van stevig gerecycled plastic.",
+    benefits: [
+      "Beschermt schoenen",
+      "Lichtgewicht",
+      "Gemaakt van gerecycled materiaal",
+    ],
+    ingredients: ["Geupcycled kunststof"],
+  },
 ];
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<"home" | "about" | "admin">(
-    "home"
-  );
+  const [currentPage, setCurrentPage] = useState<"home" | "about">("home");
   const [selectedProductId, setSelectedProductId] = useState<number | null>(
     null
   );
-  const [products, setProducts] = useState(
-    (productsData as any) && (productsData as any).length
-      ? (productsData as any)
-      : embeddedProducts
-  );
 
-  const [settings, setSettings] = useState(
-    (settingsData as any) || {
-      siteName: "ReVita",
-      aboutText: `ReVita ontwerpt en produceert stijlvolle en functionele producten gemaakt van geupcycled plastic. We hergebruiken materialen die anders afval zouden worden en transformeren ze in duurzame items voor thuis, kantoor en onderweg.`,
-      primaryColor: "#10b981",
-    }
-  );
-
-  // LocalStorage persistence: load any saved overrides, and persist on change
-  useEffect(() => {
-    try {
-      const rawProducts = localStorage.getItem("revita_products");
-      if (rawProducts) {
-        setProducts(JSON.parse(rawProducts));
-      }
-    } catch (e) {
-      // ignore parse errors
-    }
-    try {
-      const rawSettings = localStorage.getItem("revita_settings");
-      if (rawSettings) {
-        setSettings(JSON.parse(rawSettings));
-      }
-    } catch (e) {
-      // ignore
-    }
-    // only run on mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // If user landed on /admin directly, open admin page (no nav link shown)
-  useEffect(() => {
-    try {
-      if (typeof location !== "undefined") {
-        const p = location.pathname || "";
-        // Support direct /admin and GitHub Pages subpath like /revita/admin
-        if (p === "/admin" || p.endsWith("/admin") || p === "/revita/admin") {
-          setCurrentPage("admin");
-        }
-      }
-    } catch (e) {}
-  }, []);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem("revita_products", JSON.stringify(products));
-    } catch (e) {}
-  }, [products]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem("revita_settings", JSON.stringify(settings));
-    } catch (e) {}
-  }, [settings]);
-
-  const handleNavigate = (page: "home" | "about" | "admin") => {
+  const handleNavigate = (page: "home" | "about") => {
     setCurrentPage(page);
     setSelectedProductId(null);
   };
@@ -117,11 +123,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navigation
-        currentPage={currentPage}
-        onNavigate={handleNavigate}
-        siteName={settings.siteName}
-      />
+      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
 
       {currentPage === "home" && !selectedProduct && (
         <ProductGallery
@@ -134,16 +136,7 @@ export default function App() {
         <ProductDetail product={selectedProduct} onBack={handleBackToGallery} />
       )}
 
-      {currentPage === "about" && <AboutPage aboutText={settings.aboutText} />}
-
-      {currentPage === "admin" && (
-        <AdminPage
-          products={products}
-          setProducts={setProducts}
-          settings={settings}
-          setSettings={setSettings}
-        />
-      )}
+      {currentPage === "about" && <AboutPage />}
 
       <Toaster />
     </div>
