@@ -53,16 +53,7 @@ export function Navigation({
             >
               Over
             </button>
-            <button
-              onClick={() => onNavigate("admin")}
-              className={`px-3 py-2 rounded-md transition-colors ${
-                currentPage === "admin"
-                  ? "text-emerald-600"
-                  : "text-gray-700 hover:text-emerald-600"
-              }`}
-            >
-              Admin
-            </button>
+            {/* Admin is intentionally not linked in the nav; access via /admin URL */}
           </div>
 
           {/* Mobile menu button */}

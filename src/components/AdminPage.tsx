@@ -36,7 +36,8 @@ export function AdminPage({
 
   // Simple client-side credentials; prefer to use settings-admin password if available
   const VALID_USERNAME = "admin";
-  const VALID_PASSWORD = (settings && (settings as any).adminPassword) || "revita123";
+  const VALID_PASSWORD =
+    (settings && (settings as any).adminPassword) || "revita123";
 
   // Product form state
   const [editing, setEditing] = useState<Product | null>(null);
@@ -257,37 +258,51 @@ export function AdminPage({
                     }}
                   />
                   {/* If Cloudinary config present, offer upload */}
-                  {((settings as any)?.cloudinaryCloudName && (settings as any)?.cloudinaryUploadPreset) && (
-                    <button
-                      type="button"
-                      className="px-3 py-1 bg-indigo-600 text-white rounded"
-                      onClick={async () => {
-                        const input = document.querySelector('input[type=file]') as HTMLInputElement | null;
-                        const file = input?.files?.[0];
-                        if (!file) return alert('Selecteer eerst een bestand');
-                        try {
-                          const formData = new FormData();
-                          formData.append('file', file);
-                          formData.append('upload_preset', (settings as any).cloudinaryUploadPreset);
-                          const cloudName = (settings as any).cloudinaryCloudName;
-                          const resp = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
-                            method: 'POST',
-                            body: formData,
-                          });
-                          const json = await resp.json();
-                          if (json.secure_url) {
-                            setForm((f) => ({ ...f, image: json.secure_url }));
-                          } else {
-                            alert('Upload mislukt');
+                  {(settings as any)?.cloudinaryCloudName &&
+                    (settings as any)?.cloudinaryUploadPreset && (
+                      <button
+                        type="button"
+                        className="px-3 py-1 bg-indigo-600 text-white rounded"
+                        onClick={async () => {
+                          const input = document.querySelector(
+                            "input[type=file]"
+                          ) as HTMLInputElement | null;
+                          const file = input?.files?.[0];
+                          if (!file)
+                            return alert("Selecteer eerst een bestand");
+                          try {
+                            const formData = new FormData();
+                            formData.append("file", file);
+                            formData.append(
+                              "upload_preset",
+                              (settings as any).cloudinaryUploadPreset
+                            );
+                            const cloudName = (settings as any)
+                              .cloudinaryCloudName;
+                            const resp = await fetch(
+                              `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+                              {
+                                method: "POST",
+                                body: formData,
+                              }
+                            );
+                            const json = await resp.json();
+                            if (json.secure_url) {
+                              setForm((f) => ({
+                                ...f,
+                                image: json.secure_url,
+                              }));
+                            } else {
+                              alert("Upload mislukt");
+                            }
+                          } catch (err) {
+                            alert("Upload fout: " + (err as any).message);
                           }
-                        } catch (err) {
-                          alert('Upload fout: ' + (err as any).message);
-                        }
-                      }}
-                    >
-                      Upload naar Cloudinary
-                    </button>
-                  )}
+                        }}
+                      >
+                        Upload naar Cloudinary
+                      </button>
+                    )}
                   {form.image && (
                     <div className="w-24 h-24 bg-gray-100 rounded overflow-hidden">
                       <img
@@ -398,10 +413,56 @@ export function AdminPage({
                   className="px-3 py-2 bg-blue-600 text-white rounded"
                   onClick={async () => {
                     const confirmPublish = confirm(
-                      "Publiceer huidige producten naar GitHub?\nDit zal een workflow triggeren die het file src/data/products.json bijwerkt in de repository."
+                      "Publiceer huidige producten?\nDit zal een workflow triggeren die src/data/*.json bijwerkt en de site opnieuw uitrolt."
                     );
                     if (!confirmPublish) return;
 
+                    // Try worker-based publish if configured in settings
+                    const workerUrl = (settings as any)?.publishWorkerUrl;
+                    const workerSecret = (settings as any)?.publishWorkerSecret;
+
+                    const payload = {
+                      products: JSON.stringify(products, null, 2),
+                      settings: JSON.stringify(settings, null, 2),
+                    };
+
+                    if (workerUrl && workerSecret) {
+                      try {
+                        const r = await fetch(workerUrl, {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({
+                            ...payload,
+                            secret: workerSecret,
+                          }),
+                        });
+
+                        if (r.ok || r.status === 202) {
+                          alert(
+                            "Publicatie gestart via worker — controleer GitHub Actions voor voortgang."
+                          );
+                        } else {
+                          const txt = await r.text();
+                          alert(
+                            "Worker fout bij publiceren: " +
+                              r.status +
+                              " " +
+                              txt
+                          );
+                        }
+                      } catch (err) {
+                        alert(
+                          "Fout bij publiceren naar worker: " +
+                            (err as any).message
+                        );
+                      }
+
+                      return;
+                    }
+
+                    // Fallback: existing direct GitHub dispatch flow (prompt for token)
                     const token = prompt(
                       "Plak hier een GitHub Personal Access Token (repo:contents write)\n(LET OP: dit is client-side en niet veilig voor productie)"
                     );
@@ -411,10 +472,6 @@ export function AdminPage({
                       const owner = "Revita-Plastics";
                       const repo = "revita";
                       const url = `https://api.github.com/repos/${owner}/${repo}/dispatches`;
-                      const payload = {
-                        products: JSON.stringify(products, null, 2),
-                        settings: JSON.stringify(settings, null, 2),
-                      };
 
                       const r = await fetch(url, {
                         method: "POST",

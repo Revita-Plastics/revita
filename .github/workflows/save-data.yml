@@ -29,9 +29,32 @@ jobs:
           fi
 
       - name: Commit and push
+        env:
+          GH_PAGES_PAT: ${{ secrets.GH_PAGES_PAT }}
         run: |
+          # configure git identity
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/products.json src/data/settings.json || true
-          git commit -m "chore: update data via admin" || echo "no changes to commit"
-          git push origin HEAD:main
+
+          # Only add files that exist to avoid errors
+          git add src/data/products.json src/data/settings.json 2>/dev/null || true
+
+          # Commit if changed
+          if git diff --staged --quiet; then
+            echo "no changes to commit"
+            exit 0
+          fi
+
+          git commit -m "chore: update data via admin"
+
+          # Push using a personal access token from secrets to avoid permission issues
+          if [ -z "$GH_PAGES_PAT" ]; then
+            echo "GH_PAGES_PAT not set - cannot push changes" >&2
+            exit 1
+          fi
+
+          # Use token in remote URL for a robust push
+          origin_url=$(git remote get-url origin)
+          # Construct an authenticated URL (works with https remotes)
+          auth_url="https://${GH_PAGES_PAT}@${origin_url#https://}"
+          git push "$auth_url" HEAD:main

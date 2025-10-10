@@ -73,6 +73,15 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // If user landed on /admin directly, open admin page (no nav link shown)
+  useEffect(() => {
+    try {
+      if (typeof location !== "undefined" && location.pathname === "/admin") {
+        setCurrentPage("admin");
+      }
+    } catch (e) {}
+  }, []);
+
   useEffect(() => {
     try {
       localStorage.setItem("revita_products", JSON.stringify(products));
