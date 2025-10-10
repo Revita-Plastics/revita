@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Upcycled Plantenpot",
+    "category": "Home & Garden",
+    "price": "€24,95",
+    "image": "./images/PPM_Product_Riser_1.webp",
+    "description": "Handgemaakte plantenpot gemaakt van gerecycled en geupcycled plastic. Stevig, weerbestendig en perfect voor binnen en buiten.",
+    "benefits": [
+      "Gemaakt van gerecycled plastic",
+      "UV-bestendig en kleurvast",
+      "Uniek handgemaakt design",
+      "Makkelijk schoon te maken"
+    ],
+    "ingredients": ["Geupcycled polypropyleen", "Kleurpigmenten (vegan)"]
+  }
+]

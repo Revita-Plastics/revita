@@ -4,9 +4,14 @@ import { useState } from "react";
 interface NavigationProps {
   currentPage: string;
   onNavigate: (page: string) => void;
+  siteName?: string;
 }
 
-export function Navigation({ currentPage, onNavigate }: NavigationProps) {
+export function Navigation({
+  currentPage,
+  onNavigate,
+  siteName = "ReVita",
+}: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -19,9 +24,15 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             className="flex items-center space-x-2"
           >
             <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center">
-              <span className="text-white">RU</span>
+              <span className="text-white">
+                {siteName.slice(0, 2).toUpperCase()}
+              </span>
             </div>
-            <span className="text-emerald-900">ReVita</span>
+<<<<<<< HEAD
+            <span className="text-emerald-900">{siteName}</span>
+=======
+            <span className="text-emerald-900">{siteName}</span>
+>>>>>>> 1afde28 (feat(admin): add admin page, persistence and GitHub publish workflow; add tsconfig)
           </button>
 
           {/* Desktop Navigation */}
@@ -45,6 +56,16 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
               }`}
             >
               Over
+            </button>
+            <button
+              onClick={() => onNavigate("admin")}
+              className={`px-3 py-2 rounded-md transition-colors ${
+                currentPage === "admin"
+                  ? "text-emerald-600"
+                  : "text-gray-700 hover:text-emerald-600"
+              }`}
+            >
+              Admin
             </button>
           </div>
 
