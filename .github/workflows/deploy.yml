@@ -26,6 +26,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Create SPA 404 fallback
+        run: |
+          # Ensure single-page app routes (like /admin) are served by index
+          if [ -f build/index.html ]; then
+            cp build/index.html build/404.html
+          fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
