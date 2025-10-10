@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,4 +30,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           publish_dir: ./build
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Use a personal access token stored in GH secrets named GH_PAGES_PAT
+          # Create a PAT with `repo` scope (and `workflow` if needed) and add it to
+          # Settings > Secrets as GH_PAGES_PAT. This avoids 403 errors when GITHUB_TOKEN
+          # lacks push rights (common for orgs or restricted repos).
+          personal_token: ${{ secrets.GH_PAGES_PAT }}
