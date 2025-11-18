@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Onderlegger",
-    "category": "Family Fun",
+    "category": "FamilyFun",
     "price": "€4,00",
     "image": "",
     "description": "Handgemaakte onderlegger gemaakt van gerecycled en geupcycled plastic.",
@@ -16,3 +16,41 @@
     "ingredients": ["Geupcycled PP of HDPE en LDPE"]
   }
 ]
+[
+  {
+    "id": 2,
+    "name": "Onderlegger",
+    "category": "EcoArt",
+    "price": "€4,00",
+    "image": "",
+    "description": "Handgemaakte onderlegger gemaakt van gerecycled en geupcycled plastic.",
+    "benefits": [
+      "Gemaakt van gerecycleerd plastic",
+      "Combinatie tussen het artistieke aspect en duurzaamheid",
+      "Een leuke, unieke stijl perfect voor elk huishouden",
+      "Uniek handgemaakt design",
+      "Makkelijk schoon te maken"
+    ],
+    "ingredients": ["Geupcycled PP of HDPE en LDPE"]
+  }
+]
+
+[
+  {
+    "id": 3,
+    "name": "Onderlegger",
+    "category": "ProLine",
+    "price": "€4,00",
+    "image": "",
+    "description": "Handgemaakte onderlegger gemaakt van gerecycled en geupcycled plastic.",
+    "benefits": [
+      "Gemaakt van gerecycleerd plastic",
+      "Professionele en ecologische uitstraling",
+      "Geschikt voor elegante, strakke setting",
+      "Uniek handgemaakt design",
+      "Makkelijk schoon te maken"
+    ],
+    "ingredients": ["Geupcycled PP of HDPE en LDPE"]
+  }
+]
+
