@@ -36,8 +36,8 @@ export function AboutPage() {
             <span>Duurzaamheid: productlevensduur en repareerbaarheid</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-emerald-600 mt-1">•</span>
-            <span>Gemeenschapsimpact: lokale verwerking en banen</span>
+            <span className="text-emerald-600 mt-1"></span>
+            <span></span>
           </li>
         </ul>
       </div>
@@ -49,29 +49,17 @@ export function AboutPage() {
           <div className="flex items-start gap-3">
             <MapPin className="h-5 w-5 text-emerald-600 mt-1" />
             <div>
-              <p className="text-gray-700">ReVita B.V.</p>
-              <p className="text-gray-700">Gezondheidsstraat 123</p>
-              <p className="text-gray-700">1234 AB Amsterdam</p>
+              <p className="text-gray-700">ReVita</p>
             </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Phone className="h-5 w-5 text-emerald-600" />
-            <a
-              href="tel:+31201234567"
-              className="text-gray-700 hover:text-emerald-600"
-            >
-              +31 (0)20 123 4567
-            </a>
           </div>
 
           <div className="flex items-center gap-3">
             <Mail className="h-5 w-5 text-emerald-600" />
             <a
-              href="mailto:info@revita.nl"
+              href="mailto:revita.plastics@gmail.com"
               className="text-gray-700 hover:text-emerald-600"
             >
-              info@revita.nl
+              revita.plastics@gmail.com
             </a>
           </div>
         </div>
