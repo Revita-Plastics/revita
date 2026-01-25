@@ -69,5 +69,30 @@ export const github = {
     }
     
     return res.json();
+  },
+
+  /**
+   * Upload image to repository
+   */
+  async uploadImage(token, owner, repo, path, base64Content, message) {
+    const res = await fetch(`${BASE_URL}/repos/${owner}/${repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'X-GitHub-Api-Version': '2022-11-28'
+      },
+      body: JSON.stringify({
+        message,
+        content: base64Content
+      })
+    });
+
+    if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.message || 'Failed to upload image');
+    }
+
+    return res.json();
   }
 };

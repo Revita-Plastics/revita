@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section style={{ 
         minHeight: '90vh', 
@@ -20,7 +23,7 @@ export function Hero() {
             fontWeight: '600',
             fontSize: '0.9rem'
         }}>
-            High Quality Recycled Goods
+            {t('hero.badge')}
         </div>
         
         <h1 style={{ 
@@ -31,7 +34,7 @@ export function Hero() {
             letterSpacing: '-0.02em',
             color: 'var(--color-text)'
         }}>
-            Nature, <span style={{ color: 'var(--color-primary)' }}>Reclaimed.</span>
+            {t('hero.title_start')} <span style={{ color: 'var(--color-primary)' }}>{t('hero.title_highlight')}</span>
         </h1>
         
         <p style={{ 
@@ -41,16 +44,19 @@ export function Hero() {
             marginBottom: '2.5rem',
             lineHeight: 1.6
         }}>
-            We transform local plastic waste into premium, durable, and aesthetic goods. 
-            Sustainable design for a cleaner future.
+            {t('hero.subtitle')}
         </p>
         
         <div style={{ display: 'flex', gap: '1rem' }}>
-            <a href="#products" className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
-                Shop Collection
-            </a>
+            <span 
+                onClick={() => document.getElementById('products')?.scrollIntoView({behavior: 'smooth'})} 
+                className="btn btn-primary" 
+                style={{ fontSize: '1.1rem', padding: '1rem 2rem', cursor: 'pointer' }}
+            >
+                {t('hero.cta_shop')}
+            </span>
             <button className="btn btn-outline" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
-                Learn More
+                {t('hero.cta_learn')}
             </button>
         </div>
     </section>

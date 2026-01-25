@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import { Navbar } from './Navbar';
 import { Hero } from './Hero';
 import { ProductCard } from './ProductCard';
+import { useLanguage } from '../context/LanguageContext';
 import productsData from '../data/products.json';
 
 export function Home() {
+    const { t } = useLanguage();
+    
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -26,9 +29,9 @@ export function Home() {
                     display: 'block',
                     marginBottom: '0.5rem'
                 }}>
-                    Catalog
+                    {t('home.catalog_eyebrow')}
                 </span>
-                <h2 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--color-text)', fontWeight: '700' }}>Our Collection</h2>
+                <h2 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--color-text)', fontWeight: '700' }}>{t('home.catalog_title')}</h2>
                 <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto', borderRadius: '2px', opacity: 0.6 }}></div>
             </div>
             

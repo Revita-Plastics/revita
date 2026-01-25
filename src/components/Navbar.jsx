@@ -1,8 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Leaf } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Leaf, Globe } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Navbar() {
+  const { t, lang, toggleLang } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScroll = (id) => {
+    if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation
+        setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    } else {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="glass-panel" style={{
       position: 'fixed',
@@ -30,13 +49,31 @@ export function Navbar() {
             Revita
         </Link>
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontWeight: '500' }}>
-            <Link to="/" style={{ color: 'var(--color-text)' }}>Home</Link>
-            <a href="#products" style={{ color: 'var(--color-text)' }}>Products</a>
-            <Link to="/about" style={{ color: 'var(--color-text)' }}>Our Mission</Link>
+            <Link to="/" style={{ color: 'var(--color-text)' }}>{t('nav.home')}</Link>
+            <span 
+                onClick={() => handleScroll('products')} 
+                style={{ color: 'var(--color-text)', cursor: 'pointer' }}
+            >
+                {t('nav.products')}
+            </span>
+            <Link to="/mission" style={{ color: 'var(--color-text)' }}>{t('nav.mission')}</Link>
         </div>
-        <Link to="/admin" className="btn btn-outline" style={{ padding: '0.4rem 1rem', fontSize: '0.9rem' }}>
-            Admin
-        </Link>
+        
+        <button 
+            onClick={toggleLang}
+            className="btn btn-outline"
+            style={{ 
+                padding: '0.4rem 0.8rem', 
+                fontSize: '0.8rem', 
+                display: 'flex', 
+                gap: '0.5rem',
+                border: '1px solid #ddd',
+                color: 'var(--color-text)'
+            }}
+        >
+            <Globe size={16} />
+            {lang === 'nl' ? 'NL' : 'EN'}
+        </button>
     </nav>
   );
 }

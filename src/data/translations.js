@@ -1,0 +1,86 @@
+export const translations = {
+  nl: {
+    nav: {
+      home: 'Home',
+      products: 'Producten',
+      mission: 'Onze Missie',
+      admin: 'Beheer'
+    },
+    hero: {
+      badge: 'Hoogwaardige Gerecyclede Producten',
+      title_start: 'Natuur,',
+      title_highlight: 'Herwonnen.',
+      subtitle: 'Wij transformeren lokaal plastic afval in hoogwaardige, duurzame en esthetische producten.',
+      cta_shop: 'Collectie Bekijken',
+      cta_learn: 'Meer Lezen'
+    },
+    home: {
+      catalog_eyebrow: 'Catalogus',
+      catalog_title: 'Onze Collectie',
+      footer_rights: 'Alle rechten voorbehouden.'
+    },
+    product: {
+      price: 'Prijs',
+      add_to_cart: 'Bestellen', // Or 'Details bekijken'
+      view_details: 'Bekijk Details',
+      back: 'Terug naar overzicht',
+      specs: 'Specificaties',
+      material: 'Materiaal',
+      weight: 'Gewicht',
+      impact: 'Ecologische Impact',
+      impact_desc: 'Bespaarde CO2 en afval'
+    },
+    mission: {
+      title: 'Onze Missie',
+      subtitle: 'Van afval naar waarde',
+      desc: 'Bij Revita Plastics geloven we dat afval niet bestaat, alleen grondstoffen die op de verkeerde plek liggen.',
+      process_title: 'Hoe het werkt',
+      step1: 'Inzamelen & Sorteren',
+      step2: 'Versnipperen & Wassen',
+      step3: 'Smelten & Vormen',
+      step4: 'Afwerking'
+    }
+  },
+  en: {
+    nav: {
+      home: 'Home',
+      products: 'Products',
+      mission: 'Our Mission',
+      admin: 'Admin'
+    },
+    hero: {
+      badge: 'High Quality Recycled Goods',
+      title_start: 'Nature,',
+      title_highlight: 'Reclaimed.',
+      subtitle: 'We transform local plastic waste into premium, durable, and aesthetic goods.',
+      cta_shop: 'Shop Collection',
+      cta_learn: 'Learn More'
+    },
+    home: {
+      catalog_eyebrow: 'Catalog',
+      catalog_title: 'Our Collection',
+      footer_rights: 'All rights reserved.'
+    },
+    product: {
+      price: 'Price',
+      add_to_cart: 'Order',
+      view_details: 'View Details',
+      back: 'Back to overview',
+      specs: 'Specifications',
+      material: 'Material',
+      weight: 'Weight',
+      impact: 'Ecological Impact',
+      impact_desc: 'Saved CO2 and waste'
+    },
+    mission: {
+      title: 'Our Mission',
+      subtitle: 'From waste to value',
+      desc: 'At Revita Plastics we believe waste does not exist, only resources in the wrong place.',
+      process_title: 'How it works',
+      step1: 'Collect & Sort',
+      step2: 'Shred & Wash',
+      step3: 'Melt & Mold',
+      step4: 'Finish'
+    }
+  }
+};

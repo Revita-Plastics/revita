@@ -1,18 +1,54 @@
 [
   {
     "id": 1,
-    "name": "Revita Planter",
+    "name": {
+      "nl": "Revita Bloempot",
+      "en": "Revita Planter"
+    },
     "price": 24.99,
-    "description": "Minimalist plant pot made from 100% recycled bottle caps. Durable, waterproof, and uniquely patterned.",
+    "description": {
+      "nl": "Minimalistische bloempot gemaakt van 100% gerecyclede doppen. Duurzaam, waterdicht en met een uniek patroon.",
+      "en": "Minimalist plant pot made from 100% recycled bottle caps. Durable, waterproof, and uniquely patterned."
+    },
     "category": "Home",
-    "image": "https://placehold.co/600x600/94bfa2/ffffff?text=Revita+Planter"
+    "image": "https://placehold.co/600x600/94bfa2/ffffff?text=Revita+Planter",
+    "material": {
+      "nl": "100% Gerecycled HDPE",
+      "en": "100% Recycled HDPE"
+    },
+    "weight": {
+      "nl": "250g",
+      "en": "250g"
+    },
+    "impact": {
+      "nl": "Redt ~15 flessen",
+      "en": "Saved ~15 bottles"
+    }
   },
   {
     "id": 2,
-    "name": "Eco Coaster Set",
+    "name": {
+      "nl": "Eco Onderzetters (Set)",
+      "en": "Eco Coaster Set"
+    },
     "price": 12.50,
-    "description": "Set of 4 coasters. Colors vary based on the recycled source material.",
+    "description": {
+      "nl": "Set van 4 onderzetters. Kleuren variëren op basis van het gerecyclede bronmateriaal.",
+      "en": "Set of 4 coasters. Colors vary based on the recycled source material."
+    },
     "category": "Kitchen",
-    "image": "https://placehold.co/600x600/e0e9e3/2d3730?text=Coasters"
+    "image": "https://placehold.co/600x600/e0e9e3/2d3730?text=Coasters",
+    "material": {
+      "nl": "Gerecycled PP",
+      "en": "Recycled PP"
+    },
+    "weight": {
+      "nl": "100g",
+      "en": "100g"
+    },
+    "impact": {
+      "nl": "Redt ~5 bakjes",
+      "en": "Saved ~5 containers"
+    }
   }
 ]
