@@ -11,7 +11,7 @@
       "en": "Minimalist plant pot made from 100% recycled bottle caps. Durable, waterproof, and uniquely patterned."
     },
     "category": "Home",
-    "image": "https://Revita-Plastics.github.io/revita/uploads/1769368352247_shipplastic.jpg",
+    "image": "https://Revita-Plastics.github.io/revita/uploads/1770159685843_JoshuaSpaceRecycledPlanter.webp",
     "material": {
       "nl": "",
       "en": ""
@@ -27,11 +27,17 @@
   },
   {
     "id": 2,
-    "name": "Eco Coaster Set",
+    "name": {
+      "nl": "Eco Coaster Set",
+      "en": "Eco Coaster Set"
+    },
     "price": 12.5,
-    "description": "Set of 4 coasters. Colors vary based on the recycled source material.",
+    "description": {
+      "nl": "Set of 4 coasters. Colors vary based on the recycled source material.",
+      "en": "Set of 4 coasters. Colors vary based on the recycled source material."
+    },
     "category": "Kitchen",
-    "image": "https://placehold.co/600x600/e0e9e3/2d3730?text=Coasters",
+    "image": "https://Revita-Plastics.github.io/revita/uploads/1770159622567_CRRPLC00RecycledRoundPlasticCoasters.jpg",
     "material": {
       "nl": "Gerecycled PP",
       "en": "Recycled PP"
