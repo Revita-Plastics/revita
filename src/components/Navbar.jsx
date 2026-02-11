@@ -1,3 +1,7 @@
+import React from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Globe } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import logo from '../assets/images/revita-logo.png';
 
 export function Navbar() {
