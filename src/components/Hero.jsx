@@ -15,30 +15,19 @@ export function Hero() {
         textAlign: 'center',
         padding: '0 1rem'
     }}>
-        <img src={logo} alt="Revita Logo" style={{ height: '80px', marginBottom: '1.5rem' }} />
+        <img src={logo} alt="Revita Logo" style={{ height: '150px', marginBottom: '2rem' }} />
         
         <div style={{ 
             background: 'rgba(148, 191, 162, 0.1)', 
-            padding: '0.5rem 1rem', 
+            padding: '0.75rem 1.5rem', 
             borderRadius: '2rem', 
-            marginBottom: '1.5rem',
+            marginBottom: '2rem',
             color: 'var(--color-primary-dark)',
             fontWeight: '600',
-            fontSize: '0.9rem'
+            fontSize: '1.1rem'
         }}>
             {t('hero.badge')}
         </div>
-        
-        <h1 style={{ 
-            fontSize: 'clamp(3rem, 8vw, 5rem)', 
-            marginBottom: '1.5rem', 
-            lineHeight: 1.1,
-            fontWeight: '800',
-            letterSpacing: '-0.02em',
-            color: 'var(--color-text)'
-        }}>
-            {t('hero.title_start')}
-        </h1>
         
         <p style={{ 
             maxWidth: '600px', 

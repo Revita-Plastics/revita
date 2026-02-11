@@ -46,8 +46,7 @@ export function Navbar() {
             color: 'var(--color-primary)',
             letterSpacing: '-0.03em'
         }}>
-            <img src={logo} alt="Revita Logo" style={{ height: '32px' }} />
-            Revita
+            <img src={logo} alt="Revita Logo" style={{ height: '48px' }} />
         </Link>
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontWeight: '500' }}>
             <Link to="/" style={{ color: 'var(--color-text)' }}>{t('nav.home')}</Link>

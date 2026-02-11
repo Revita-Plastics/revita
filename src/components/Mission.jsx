@@ -26,31 +26,43 @@ export function Mission() {
              
              {/* Header with Logo - Green Area */}
              <div style={{ textAlign: 'center', padding: '3rem 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                <img src={logo} alt="Revita Logo" style={{ height: '80px' }} />
-                <h1 style={{ fontSize: '3rem', fontWeight: '800', color: 'var(--color-primary-dark)', margin: 0 }}>Revita</h1>
+                <img src={logo} alt="Revita Logo" style={{ height: '100px' }} />
              </div>
 
-             {/* Main Text Content - Blue Area */}
-             <div style={{ 
-                background: 'white', 
-                padding: '3rem', 
-                borderRadius: 'var(--radius)', 
-                boxShadow: 'var(--shadow-sm)',
-                lineHeight: '1.8',
-                fontSize: '1.1rem',
-                marginBottom: '4rem'
-             }}>
-                <h2 style={{ color: 'var(--color-text)', marginBottom: '1rem' }}>{t('mission.title')}</h2>
-                <p style={{ whiteSpace: 'pre-line', marginBottom: '2rem' }}>{t('mission.about_text')}</p>
+             {/* Main Text Content - Updated Layout */}
+             <div style={{ display: 'grid', gap: '2rem', marginBottom: '4rem' }}>
+                 {/* Intro Card */}
+                <div className="glass-panel" style={{ padding: '3rem', borderRadius: 'var(--radius)', position: 'relative', overflow: 'hidden' }}>
+                    <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '100px', height: '100px', background: 'var(--color-primary)', opacity: '0.1', borderRadius: '50%' }}></div>
+                    <h2 style={{ color: 'var(--color-primary-dark)', marginBottom: '1.5rem', fontSize: '2rem' }}>{t('mission.title')}</h2>
+                    <p style={{ whiteSpace: 'pre-line', fontSize: '1.1rem', lineHeight: '1.8' }}>{t('mission.about_text')}</p>
+                </div>
 
-                <h3 style={{ color: 'var(--color-primary-dark)', marginBottom: '0.5rem', fontSize: '1.4rem' }}>{t('mission.mission_title')}</h3>
-                <p style={{ whiteSpace: 'pre-line', marginBottom: '2rem' }}>{t('mission.mission_text')}</p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                    {/* Mission Card */}
+                    <div className="glass-panel" style={{ padding: '2.5rem', borderRadius: 'var(--radius)', background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,249,244,0.9) 100%)' }}>
+                        <h3 style={{ color: 'var(--color-primary-dark)', marginBottom: '1rem', fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <Trees size={24} /> {t('mission.mission_title')}
+                        </h3>
+                        <p style={{ whiteSpace: 'pre-line', lineHeight: '1.7' }}>{t('mission.mission_text')}</p>
+                    </div>
 
-                <h3 style={{ color: 'var(--color-primary-dark)', marginBottom: '0.5rem', fontSize: '1.4rem' }}>{t('mission.values_title')}</h3>
-                <p style={{ whiteSpace: 'pre-line', marginBottom: '2rem' }}>{t('mission.values_text')}</p>
+                    {/* Values Card */}
+                    <div className="glass-panel" style={{ padding: '2.5rem', borderRadius: 'var(--radius)', background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,249,244,0.9) 100%)' }}>
+                        <h3 style={{ color: 'var(--color-primary-dark)', marginBottom: '1rem', fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <Heart size={24} /> {t('mission.values_title')}
+                        </h3>
+                        <p style={{ whiteSpace: 'pre-line', lineHeight: '1.7' }}>{t('mission.values_text')}</p>
+                    </div>
+                </div>
 
-                <h3 style={{ color: 'var(--color-primary-dark)', marginBottom: '0.5rem', fontSize: '1.4rem' }}>{t('mission.movement_title')}</h3>
-                <p style={{ whiteSpace: 'pre-line' }}>{t('mission.movement_text')}</p>
+                {/* Movement Card */}
+                <div className="glass-panel" style={{ padding: '3rem', borderRadius: 'var(--radius)', textAlign: 'center' }}>
+                    <h3 style={{ color: 'var(--color-primary-dark)', marginBottom: '1rem', fontSize: '1.8rem' }}>{t('mission.movement_title')}</h3>
+                    <p style={{ whiteSpace: 'pre-line', fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
+                        "{t('mission.movement_text')}"
+                    </p>
+                </div>
              </div>
 
              {/* Process Section */}
