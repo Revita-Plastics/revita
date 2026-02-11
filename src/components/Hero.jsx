@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import logo from '../assets/images/revita-logo.png';
 
 export function Hero() {
   const { t } = useLanguage();
@@ -14,6 +15,8 @@ export function Hero() {
         textAlign: 'center',
         padding: '0 1rem'
     }}>
+        <img src={logo} alt="Revita Logo" style={{ height: '80px', marginBottom: '1.5rem' }} />
+        
         <div style={{ 
             background: 'rgba(148, 191, 162, 0.1)', 
             padding: '0.5rem 1rem', 
@@ -34,7 +37,7 @@ export function Hero() {
             letterSpacing: '-0.02em',
             color: 'var(--color-text)'
         }}>
-            {t('hero.title_start')} <span style={{ color: 'var(--color-primary)' }}>{t('hero.title_highlight')}</span>
+            {t('hero.title_start')}
         </h1>
         
         <p style={{ 

@@ -3,13 +3,13 @@
     "nav": {
       "home": "Home",
       "products": "Producten",
-      "mission": "Onze Missie",
+      "mission": "Over ons",
       "admin": "Beheer"
     },
     "hero": {
-      "badge": "Hoogwaardige Gerecyclede Producten",
-      "title_start": "Natuur,",
-      "title_highlight": "Herwonnen.",
+      "badge": "Rethink, Reuse, Revita",
+      "title_start": "Revita",
+      "title_highlight": "",
       "subtitle": "Wij transformeren lokaal plastic afval in hoogwaardige, duurzame en esthetische producten.",
       "cta_shop": "Collectie Bekijken",
       "cta_learn": "Meer Lezen"
@@ -31,27 +31,36 @@
       "impact_desc": "Bespaarde CO2 en afval"
     },
     "mission": {
-      "title": "Onze Missie",
-      "subtitle": "Van afval naar waarde",
-      "desc": "Bij Revita Plastics geloven we dat afval niet bestaat, alleen grondstoffen die op de verkeerde plek liggen.",
+      "title": "Over ons",
+      "about_text": "Revita is een jonge, lokale onderneming uit Leuven, ontstaan uit een groep gedreven ondernemers en milieubewuste inwoners met één gedeelde passie: duurzaamheid.\nWij zetten ons actief in voor het inzamelen, sorteren en recycleren van kunststofafval, met een specifieke focus op PP (polypropyleen) en HDPE (hogedichtheidspolyethyleen) — veelgebruikte plastics die vaak al na één gebruik worden weggegooid.\nIn plaats van deze kunststoffen te laten verbranden of exporteren, geven wij ze een tweede leven binnen onze lokale kringloop. Samen met kappers, traiteurs, schoonmaakbedrijven en scholen redden we plastic dat anders als afval zou eindigen. Het ingezamelde materiaal wordt zorgvuldig gesorteerd, gereinigd en klaargemaakt voor hergebruik of recyclage.",
+      "mission_title": "Onze missie",
+      "mission_text": "Onze missie is duidelijk: plastic afval een nieuwe kans geven — een kans voor de planeet, voor de gemeenschap en voor de volgende generatie.\nWij geloven dat grote milieuproblemen lokaal kunnen worden aangepakt, stap voor stap, door samenwerking tussen burgers, bedrijven en jongeren.",
+      "values_title": "Waar wij voor staan",
+      "values_text": "Revita staat voor duurzaamheid, samenwerking en transparantie. We willen tonen dat recycleren niet enkel een noodzaak is, maar ook een positieve kracht die mensen verbindt en inspireert.\nJongeren vormen daarbij de motor van verandering. Daarom betrekken we hen actief bij inzamelacties, workshops en educatieve projecten, zodat zij zelf kunnen bijdragen aan een circulaire toekomst.",
+      "movement_title": "Onze beweging",
+      "movement_text": "Kortom, Revita is meer dan een recyclagebedrijf — het is een beweging van mensen die geloven dat elk stukje plastic een tweede leven verdient. Door lokaal te handelen en samen te werken, bouwen we stap voor stap aan een schonere, bewustere en duurzamere wereld vanuit het hart van Leuven.",
       "process_title": "Hoe het werkt",
       "step1": "Inzamelen & Sorteren",
       "step2": "Versnipperen & Wassen",
       "step3": "Smelten & Vormen",
-      "step4": "Afwerking"
+      "step4": "Afwerking",
+      "contact_title": "Contact Informatie",
+      "address_line1": "Sint-Pieterscollege",
+      "address_line2": "Minderbroedersstraat 13, 3000 Leuven",
+      "email": "revita.plastics@gmail.com"
     }
   },
   "en": {
     "nav": {
       "home": "Home",
       "products": "Products",
-      "mission": "Our Mission",
+      "mission": "About Us",
       "admin": "Admin"
     },
     "hero": {
-      "badge": "High Quality Recycled Goods",
-      "title_start": "Nature,",
-      "title_highlight": "Reclaimed.",
+      "badge": "Rethink, Reuse, Revita",
+      "title_start": "Revita",
+      "title_highlight": "",
       "subtitle": "We transform local plastic waste into premium, durable, and aesthetic goods.",
       "cta_shop": "Shop Collection",
       "cta_learn": "Learn More"
@@ -73,14 +82,23 @@
       "impact_desc": "Saved CO2 and waste"
     },
     "mission": {
-      "title": "Our Mission",
-      "subtitle": "From waste to value",
-      "desc": "At Revita Plastics we believe waste does not exist, only resources in the wrong place.",
+      "title": "About Us",
+      "about_text": "Revita is a young, local enterprise from Leuven... (English translation placeholder or keep Dutch if user didn't provide English)",
+      "mission_title": "Our Mission",
+      "mission_text": "Our mission is clear: giving plastic waste a new chance...",
+      "values_title": "What we stand for",
+      "values_text": "Revita stands for sustainability, collaboration and transparency...",
+      "movement_title": "Our movement",
+      "movement_text": "In short, Revita is more than a recycling company...",
       "process_title": "How it works",
       "step1": "Collect & Sort",
       "step2": "Shred & Wash",
       "step3": "Melt & Mold",
-      "step4": "Finish"
+      "step4": "Finish",
+      "contact_title": "Contact Information",
+      "address_line1": "Sint-Pieterscollege",
+      "address_line2": "Minderbroedersstraat 13, 3000 Leuven",
+      "email": "revita.plastics@gmail.com"
     }
   }
 }

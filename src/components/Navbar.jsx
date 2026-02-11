@@ -1,7 +1,4 @@
-import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Leaf, Globe } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import logo from '../assets/images/revita-logo.png';
 
 export function Navbar() {
   const { t, lang, toggleLang } = useLanguage();
@@ -39,13 +36,13 @@ export function Navbar() {
         <Link to="/" style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: '0.5rem', 
+            gap: '0.75rem', 
             fontWeight: '700', 
             fontSize: '1.5rem', 
             color: 'var(--color-primary)',
             letterSpacing: '-0.03em'
         }}>
-            <Leaf size={24} strokeWidth={2.5} />
+            <img src={logo} alt="Revita Logo" style={{ height: '32px' }} />
             Revita
         </Link>
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontWeight: '500' }}>
