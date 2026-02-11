@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { useLanguage } from '../context/LanguageContext';
 import productsData from '../data/products.json';
-import { ArrowLeft, Box, Scale, leaf, Leaf } from 'lucide-react';
+import { ArrowLeft, Box, Scale, Leaf } from 'lucide-react';
 
 export function ProductDetail() {
   const { id } = useParams();
