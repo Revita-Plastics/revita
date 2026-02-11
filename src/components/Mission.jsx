@@ -26,7 +26,7 @@ export function Mission() {
              
              {/* Header with Logo - Green Area */}
              <div style={{ textAlign: 'center', padding: '3rem 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                <img src={logo} alt="Revita Logo" style={{ height: '100px' }} />
+                <img src={logo} alt="Revita Logo" style={{ height: '120px' }} />
              </div>
 
              {/* Main Text Content - Updated Layout */}

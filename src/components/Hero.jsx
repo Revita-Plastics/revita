@@ -15,7 +15,7 @@ export function Hero() {
         textAlign: 'center',
         padding: '0 1rem'
     }}>
-        <img src={logo} alt="Revita Logo" style={{ height: '150px', marginBottom: '2rem' }} />
+        <img src={logo} alt="Revita Logo" style={{ height: '220px', marginBottom: '1rem' }} />
         
         <div style={{ 
             background: 'rgba(148, 191, 162, 0.1)', 
