@@ -2,13 +2,13 @@
   {
     "id": 1,
     "name": {
-      "nl": "Revita Planter",
-      "en": "Revita Planter"
+      "nl": "Eco Onderzetters ProLine",
+      "en": "Eco Coasters ProLine"
     },
     "price": 24.99,
     "description": {
-      "nl": "Minimalist plant pot made from 100% recycled bottle caps. Durable, waterproof, and uniquely patterned.",
-      "en": "Minimalist plant pot made from 100% recycled bottle caps. Durable, waterproof, and uniquely patterned."
+      "nl": "Set of 4 coasters. Colors vary based on the recycled source material.",
+      "en": "Set of 4 coasters. Colors vary based on the recycled source material."
     },
     "category": "Home",
     "image": "https://Revita-Plastics.github.io/revita/uploads/1770159685843_JoshuaSpaceRecycledPlanter.webp",
@@ -28,27 +28,27 @@
   {
     "id": 2,
     "name": {
-      "nl": "Eco Coaster Set",
-      "en": "Eco Coaster Set"
+      "nl": "Eco Onderzetters Arts",
+      "en": "Eco Coasters Arts "
     },
     "price": 12.5,
     "description": {
       "nl": "Set of 4 coasters. Colors vary based on the recycled source material.",
       "en": "Set of 4 coasters. Colors vary based on the recycled source material."
     },
-    "category": "Kitchen",
+    "category": "Home",
     "image": "https://Revita-Plastics.github.io/revita/uploads/1770159622567_CRRPLC00RecycledRoundPlasticCoasters.jpg",
     "material": {
-      "nl": "Gerecycled PP",
-      "en": "Recycled PP"
+      "nl": "Gerecycled PP en HDPE",
+      "en": "Recycled PP and HDPE"
     },
     "weight": {
       "nl": "100g",
       "en": "100g"
     },
     "impact": {
-      "nl": "Redt ~5 bakjes",
-      "en": "Saved ~5 containers"
+      "nl": "",
+      "en": ""
     }
   }
 ]
