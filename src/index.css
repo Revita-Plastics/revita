@@ -1,8 +1,8 @@
 :root {
   /* Palette: Eucalyptus & White */
-  --color-primary: #94bfa2; /* Pastel Eucalyptus */
-  --color-primary-hover: #7aa387;
-  --color-bg: #f8fcf9; /* Very subtle green tint white */
+  --color-primary: #4CBEC2; /* medium blue */
+  --color-primary-hover: #35989C;
+  --color-bg: #F5FFFF; /* Very subtle blue tint white */
   --color-surface: #ffffff;
   --color-text: #2d3730;
   --color-text-muted: #6b7a70;
