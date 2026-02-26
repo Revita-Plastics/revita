@@ -7,7 +7,7 @@
       "admin": "Beheer"
     },
     "hero": {
-      "badge": "Rethink, Reuse, Revita",
+      "badge": "Re-Think, Re-Use, Revita",
       "title_start": "Revita",
       "title_highlight": "",
       "subtitle": "Wij transformeren lokaal plastic afval in hoogwaardige, duurzame en esthetische producten.",
@@ -58,7 +58,7 @@
       "admin": "Admin"
     },
     "hero": {
-      "badge": "Rethink, Reuse, Revita",
+      "badge": "Re-Think, Re-Use, Revita",
       "title_start": "Revita",
       "title_highlight": "",
       "subtitle": "We transform local plastic waste into premium, durable, and aesthetic goods.",
@@ -83,13 +83,13 @@
     },
     "mission": {
       "title": "About Us",
-      "about_text": "Revita is a young, local enterprise from Leuven... (English translation placeholder or keep Dutch if user didn't provide English)",
+      "about_text": "Revita is a young, local company from Leuven, founded by a group of driven entrepreneurs and environmentally conscious residents with one shared passion: sustainability. We are actively committed to collecting, sorting, and recycling plastic waste, with a specific focus on PP (polypropylene) and HDPE (high-density polyethylene) — commonly used plastics that are often discarded after just one use. Instead of incinerating or exporting these plastics, we give them a second life within our local cycle. Together with hairdressers, caterers, cleaning companies, and schools, we salvage plastic that would otherwise end up as waste. The collected material is carefully sorted, cleaned, and prepared for reuse or recycling.",
       "mission_title": "Our Mission",
-      "mission_text": "Our mission is clear: giving plastic waste a new chance...",
+      "mission_text": "Our mission is clear: give plastic waste a second chance — a chance for the planet, for the community, and for the next generation. We believe that major environmental problems can be tackled locally, step by step, through collaboration between citizens, businesses, and young people.",
       "values_title": "What we stand for",
-      "values_text": "Revita stands for sustainability, collaboration and transparency...",
+      "values_text": "Revita stands for sustainability, collaboration, and transparency. We want to show that recycling is not just a necessity, but also a positive force that connects and inspires people. Young people are the driving force behind change. That's why we actively involve them in collection campaigns, workshops, and educational projects, so they can contribute to a circular future.",
       "movement_title": "Our movement",
-      "movement_text": "In short, Revita is more than a recycling company...",
+      "movement_text": "In short, Revita is more than just a recycling company—it's a movement of people who believe every piece of plastic deserves a second life. By trading locally and collaborating, we're gradually building a cleaner, more conscious, and more sustainable world from the heart of Leuven.",
       "process_title": "How it works",
       "step1": "Collect & Sort",
       "step2": "Shred & Wash",
