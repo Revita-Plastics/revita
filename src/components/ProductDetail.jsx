@@ -55,7 +55,7 @@ export function ProductDetail() {
                         display: 'block',
                         marginBottom: '1.5rem'
                     }}>
-                        ${product.price.toFixed(2)}
+                        €{product.price.toFixed(2)}
                     </span>
 
                     <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
