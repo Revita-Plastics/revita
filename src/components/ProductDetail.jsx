@@ -74,7 +74,7 @@ export function ProductDetail() {
                         <div style={{ display: 'grid', gap: '1.5rem' }}>
                             {/* Material */}
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                                <div style={{ background: '#f0f4f1', padding: '0.5rem', borderRadius: '50%' }}>
+                                <div style={{ background: '#e3fffd', padding: '0.5rem', borderRadius: '50%' }}>
                                     <Leaf size={20} color="var(--color-primary)" />
                                 </div>
                                 <div>
@@ -87,7 +87,7 @@ export function ProductDetail() {
                             
                             {/* Dimensions/Weight */}
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                                <div style={{ background: '#f0f4f1', padding: '0.5rem', borderRadius: '50%' }}>
+                                <div style={{ background: '#e3fffd', padding: '0.5rem', borderRadius: '50%' }}>
                                     <Scale size={20} color="var(--color-primary)" />
                                 </div>
                                 <div>
@@ -100,7 +100,7 @@ export function ProductDetail() {
 
                             {/* Impact */}
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                                <div style={{ background: '#f0f4f1', padding: '0.5rem', borderRadius: '50%' }}>
+                                <div style={{ background: '#e3fffd', padding: '0.5rem', borderRadius: '50%' }}>
                                     <Box size={20} color="var(--color-primary)" />
                                 </div>
                                 <div>
