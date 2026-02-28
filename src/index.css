@@ -1,12 +1,12 @@
 :root {
-  /* Palette: Eucalyptus & White */
+  /* Palette: blue & White */
   --color-primary: #4CBEC2; /* medium blue */
   --color-primary-hover: #35989C;
-  --color-bg: #F5FFFF; /* Very subtle blue tint white */
-  --color-surface: #ffffff;
-  --color-text: #2d3730;
-  --color-text-muted: #6b7a70;
-  --color-border: #e0e9e3;
+  --color-bg: #e3fffd; /* Very subtle blue tint white */
+  --color-surface: #f8ffff;
+  --color-text: #003e64;
+  --color-text-muted: #00568b;
+  --color-border: #59b5b8;
   
   --font-main: 'Inter', system-ui, sans-serif;
   
