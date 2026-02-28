@@ -45,7 +45,7 @@ export function ProductCard({ product }) {
                 padding: '0.25rem 0.75rem',
                 borderRadius: '2rem',
                 fontSize: '0.9rem'
-            }}>${product.price.toFixed(2)}</span>
+            }}>€{product.price.toFixed(2)}</span>
         </div>
         <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontSize: '0.95rem', flex: 1, lineHeight: '1.6' }}>
             {typeof product.description === 'object' ? product.description[lang] || product.description['en'] : product.description}
