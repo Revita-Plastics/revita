@@ -5,20 +5,20 @@
       "nl": "Eco Onderzetters ProLine",
       "en": "Eco Coasters ProLine"
     },
-    "price": 24.99,
+    "price": 16.00,
     "description": {
-      "nl": "Set of 4 coasters. Colors vary based on the recycled source material.",
+      "nl": "Set van 4 onderleggers. Kleuren variëren op basis van het gerecycleerde materiaal.",
       "en": "Set of 4 coasters. Colors vary based on the recycled source material."
     },
     "category": "Home",
     "image": "https://Revita-Plastics.github.io/revita/uploads/1770159685843_JoshuaSpaceRecycledPlanter.webp",
     "material": {
-      "nl": "",
-      "en": ""
+      "nl": "Gerecycleerd PP en HDPE",
+      "en": "Recycled PP en HDPE"
     },
     "weight": {
-      "nl": "",
-      "en": ""
+      "nl": "100g",
+      "en": "100g"
     },
     "impact": {
       "nl": "",
@@ -31,15 +31,15 @@
       "nl": "Eco Onderzetters Arts",
       "en": "Eco Coasters Arts "
     },
-    "price": 12.5,
+    "price": 16.00,
     "description": {
-      "nl": "Set of 4 coasters. Colors vary based on the recycled source material.",
+      "nl": "Set van 4 onderleggers. Kleuren variëren op basis van het gerecycleerde materiaal.",
       "en": "Set of 4 coasters. Colors vary based on the recycled source material."
     },
     "category": "Home",
     "image": "https://Revita-Plastics.github.io/revita/uploads/1770159622567_CRRPLC00RecycledRoundPlasticCoasters.jpg",
     "material": {
-      "nl": "Gerecycled PP en HDPE",
+      "nl": "Gerecycleerd PP en HDPE",
       "en": "Recycled PP and HDPE"
     },
     "weight": {
