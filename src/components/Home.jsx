@@ -46,7 +46,7 @@ export function Home() {
             </div>
         </section>
         
-        <footer style={{ background: '#f0f4f1', padding: '4rem 0', marginTop: '2rem' }}>
+        <footer style={{ background: '#e3fffd', padding: '4rem 0', marginTop: '2rem' }}>
             <div className="container" style={{ textAlign: 'center', color: 'var(--color-text-muted)' }}>
                 <h3 style={{ color: 'var(--color-primary-dark)', marginBottom: '1rem' }}>Revita</h3>
                 <p>&copy; {new Date().getFullYear()} Revita. {t('home.footer_rights')}</p>
